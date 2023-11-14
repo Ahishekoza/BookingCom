@@ -1,0 +1,3 @@
+Packages
+npm i react-date-range
+format in date-fns is used to format date 
