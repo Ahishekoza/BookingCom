@@ -9,7 +9,7 @@ import { format } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
 // TODO : create a active button Functionality which has 
 const Header = ({type}) => {
-    const [destination,setDestination] = useState('India')
+    const [destination,setDestination] = useState('')
     const [openDatePicker, setOpenDatePicker] = useState(false)
     const [date, setDate] = useState([
         {
