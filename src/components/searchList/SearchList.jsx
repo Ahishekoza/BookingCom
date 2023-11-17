@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./SearchList.css";
 
 const SearchItem = ({ item }) => {
@@ -25,16 +26,18 @@ const SearchItem = ({ item }) => {
       </div>
       <div className="siDetails">
         {
-          item.rating && 
+          item.rating &&
           <div className="siRating">
             <span>Excellent</span>
             <button>{item.rating}</button>
           </div>
         }
         <div className="siDetailTexts">
-          <span className="siPrice">{item.cheapestPrice}</span>
+          <span className="siPrice">${item.cheapestPrice}</span>
           <span className="siTaxOp">Includes taxes and fees</span>
-          <button className="siCheckButton">See availability</button>
+          <Link to={`/hotel/${item._id}`}>
+            <button className="siCheckButton">See availability</button>
+          </Link>
         </div>
       </div>
     </div>

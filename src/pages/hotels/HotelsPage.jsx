@@ -15,8 +15,10 @@ const HotelsPage = () => {
   const [date, setDate] = useState(location.state.date)
   const [options, setOptions] = useState(location.state.options)
   const [openDate, setOpenDate] = useState(false)
+  const [min,setMin] = useState(null)
+  const [max,setMax] = useState(null)
   
-  const {data,loading,error} =  useFetch(`/hotels?city=${destination}`)
+  const {data,loading,error} =  useFetch(`/hotels?city=${destination}&min=${min||1}&max=${max||999}`)
 
   console.log(data)
   return (
@@ -29,7 +31,7 @@ const HotelsPage = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" />
+              <input onChange={(e)=>setDestination(e.target.value)} placeholder={destination} type="text" />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
@@ -52,13 +54,13 @@ const HotelsPage = () => {
                   <span className="lsOptionText">
                     Min price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOptionInput" />
+                  <input onChange={(e)=>setMin(e.target.value)} type="number" className="lsOptionInput" />
                 </div>
                 <div className="lsOptionItem">
                   <span className="lsOptionText">
                     Max price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOptionInput" />
+                  <input onChange={(e)=>setMax(e.target.value)} type="number" className="lsOptionInput" />
                 </div>
                 <div className="lsOptionItem">
                   <span className="lsOptionText">Adult</span>

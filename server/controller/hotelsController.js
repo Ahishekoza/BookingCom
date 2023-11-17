@@ -1,4 +1,5 @@
 import hotelSchema from "../models/hotels.js";
+import roomsSchema from "../models/rooms.js";
 
 export const createHotel = async (req, res) => {
     await hotelSchema.create(req.body).then((hotel) => {
@@ -124,3 +125,20 @@ export const countHotelByType = async (req, res) => {
     })
    }
 }
+
+
+export const getAllRoomsOfTheHotel = async(req,res)=>{
+    try {
+        const hotel = await hotelSchema.findById(req.params.hotelId);
+        const list = await Promise.all(
+          hotel.rooms.map((room) => {
+            return roomsSchema.findById(room);
+          })
+        );
+        res.status(200).json(list)
+      } catch (err) {
+        res.status(500).json({
+            message:'Error while processing request'
+        })
+      }
+} 

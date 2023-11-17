@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 // POST REQUEST
-router.post('/:hotelId',verifyToken,verifyisAdmin,createRoom)
+router.post('/:hotelId',createRoom)
 // PUT REQUEST
 router.put('/:id',verifyToken,verifyisAdmin,updateRoom)
 // DELETE REQUEST

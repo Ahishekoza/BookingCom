@@ -1,0 +1,25 @@
+.loginContainer{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputTab{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px;
+}
+.inputTab>input{
+    padding: 10px 5px;
+    width: 200px;
+    border: 1px solid grey;
+    outline: none;
+}
+.loginbtn{
+    margin: 10px 0px;
+    background-color: #0071c2;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+}

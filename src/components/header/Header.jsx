@@ -7,8 +7,10 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { format } from 'date-fns'
 import { useNavigate } from 'react-router-dom'
+import { useCart } from '../../context/dateContext'
 // TODO : create a active button Functionality which has 
 const Header = ({type}) => {
+    const [traveldate,setTravelDate] = useCart()
     const [destination,setDestination] = useState('')
     const [openDatePicker, setOpenDatePicker] = useState(false)
     const [date, setDate] = useState([
@@ -35,6 +37,7 @@ const Header = ({type}) => {
     }
     const navigation =  useNavigate()
     const handleSearch = () => {
+        setTravelDate(date)
         navigation('/hotels',{state:{destination,date,options}})
     }
     return (
